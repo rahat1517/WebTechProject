@@ -26,8 +26,13 @@ HOW TO RUN:
 5. On first run, open:
    http://localhost:8000/init_db.php
 6. Login with:
-   admin@example.com
-   123456
+
+
+For Admin Login : email: admin@example.com
+   password: 123456
+
+For Salesman login : email : salesman@example.com
+password:123456
 
 IMPORTANT:
 - No XAMPP needed.
