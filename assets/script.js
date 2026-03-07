@@ -1,8 +1,12 @@
 function confirmDelete() {
     return confirm("Are you sure you want to delete this item?");
 }
-function confirmLogout() {
-    return confirm("Are you sure you want to logout?");
+function openLogoutModal() {
+    document.getElementById("logoutModal").style.display = "block";
+}
+
+function closeLogoutModal() {
+    document.getElementById("logoutModal").style.display = "none";
 }
 const searchInput = document.getElementById("tableSearch");
 if (searchInput) {

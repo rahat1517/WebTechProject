@@ -9,9 +9,19 @@
 </head>
 <body>
    
-    <a href="logout.php" class="logout-btn" onclick="return confirmLogout()">Logout</a>
+    <a href="#" class="logout-btn" onclick="openLogoutModal()">Logout</a>
+<div id="logoutModal" class="modal">
+    <div class="modal-content">
+        <h2>Confirm Logout</h2>
+        <p>Are you sure you want to logout?</p>
 
-<div class="app">
+        <div class="modal-buttons">
+            <button class="btn-cancel" onclick="closeLogoutModal()">No</button>
+            <a href="logout.php" class="btn-logout">Yes, Logout</a>
+        </div>
+    </div>
+</div>
+    <div class="app">
     <aside class="sidebar" id="sidebar">
         <h2>IMS</h2>
         <nav>
