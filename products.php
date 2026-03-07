@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/auth_check.php';
-
+if ($_SESSION['user_role'] !== 'admin') {
+    die("Access denied.");
+}
 $pageTitle = "Products";
 $message = "";
 
@@ -77,13 +79,11 @@ require_once 'includes/header.php';
             <td><?= htmlspecialchars($product['supplier_name'] ?? 'N/A') ?></td>
             <td><?= ($product['quantity'] <= $product['reorder_level']) ? 'Low Stock' : 'Available' ?></td>
             <td>
-                <form method="POST" onsubmit="return confirmDelete();" class="inline-form">
+                <form method="POST" id="deleteForm<?= $product['id'] ?>">
                     <input type="hidden" name="delete_product" value="1">
                     <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-                    <button type="submit" class="danger-btn">Delete</button>
+                    <button type="button" class="delete-btn" onclick="openDeleteModal(<?= $product['id'] ?>)">Delete</button>
                 </form>
-            </td>
-        </tr>
         <?php endforeach; ?>
     </table>
 </section>

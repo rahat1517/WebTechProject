@@ -1,12 +1,41 @@
-function confirmDelete() {
-    return confirm("Are you sure you want to delete this item?");
+let deleteFormId = null;
+
+function openDeleteModal(id) {
+    deleteFormId = "deleteForm" + id;
+    const modal = document.getElementById("deleteModal");
+    if (modal) {
+        modal.style.display = "block";
+    }
 }
+
+function closeDeleteModal() {
+    const modal = document.getElementById("deleteModal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+if (confirmDeleteBtn) {
+    confirmDeleteBtn.onclick = function () {
+        if (deleteFormId) {
+            document.getElementById(deleteFormId).submit();
+        }
+    };
+}
+
 function openLogoutModal() {
-    document.getElementById("logoutModal").style.display = "block";
+    const modal = document.getElementById("logoutModal");
+    if (modal) {
+        modal.style.display = "block";
+    }
 }
 
 function closeLogoutModal() {
-    document.getElementById("logoutModal").style.display = "none";
+    const modal = document.getElementById("logoutModal");
+    if (modal) {
+        modal.style.display = "none";
+    }
 }
 const searchInput = document.getElementById("tableSearch");
 if (searchInput) {

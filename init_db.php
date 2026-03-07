@@ -6,7 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     full_name TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'salesman'
 );
 
 CREATE TABLE IF NOT EXISTS suppliers (
@@ -55,9 +56,12 @@ created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 
 $userCount = (int)$pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
 if ($userCount === 0) {
-    $password = password_hash('123456', PASSWORD_DEFAULT);
-    $stmt = $pdo->prepare("INSERT INTO users (full_name, email, password) VALUES (?, ?, ?)");
-    $stmt->execute(['Admin User', 'admin@example.com', $password]);
+    $adminPassword = password_hash('123456', PASSWORD_DEFAULT);
+    $salesmanPassword = password_hash('123456', PASSWORD_DEFAULT);
+
+    $stmt = $pdo->prepare("INSERT INTO users (full_name, email, password, role) VALUES (?, ?, ?, ?)");
+    $stmt->execute(['Admin User', 'admin@example.com', $adminPassword, 'admin']);
+    $stmt->execute(['Salesman User', 'salesman@example.com', $salesmanPassword, 'salesman']);
 }
 
 $supplierCount = (int)$pdo->query("SELECT COUNT(*) FROM suppliers")->fetchColumn();

@@ -1,7 +1,7 @@
 <?php
 require_once 'includes/auth_check.php';
 
-$pageTitle = "Orders";
+$pageTitle = "Sales Products";
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -55,7 +55,7 @@ $orders = $pdo->query("SELECT o.*, p.name AS product_name FROM orders o JOIN pro
 require_once 'includes/header.php';
 ?>
 
-<h1>Orders</h1>
+<h1>Sales Products</h1>
 
 <p class="info"><?= htmlspecialchars($message) ?></p>
 

@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/auth_check.php';
-
+if ($_SESSION['user_role'] !== 'admin') {
+    die("Access denied.");
+}
 $pageTitle = "Stock In";
 $message = "";
 

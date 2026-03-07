@@ -10,6 +10,7 @@ $lowStock = $pdo->query("SELECT COUNT(*) FROM products WHERE quantity <= reorder
 require_once 'includes/header.php';
 ?>
 <h1>Welcome, <?= htmlspecialchars($_SESSION['user_name']) ?></h1>
+<p class="info">Logged in as: <?= htmlspecialchars(ucfirst($_SESSION['user_role'])) ?></p>
 <div class="cards">
     <div class="card">
         <h3>Total Products</h3>

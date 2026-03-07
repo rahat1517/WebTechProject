@@ -181,6 +181,18 @@ h1 {
     gap: 12px;
     margin-top: 10px;
 }
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
 input, select, button {
     padding: 11px 12px;
     border-radius: 8px;

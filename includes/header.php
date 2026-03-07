@@ -25,14 +25,18 @@
     <aside class="sidebar" id="sidebar">
         <h2>IMS</h2>
         <nav>
-            <a href="dashboard.php" class="<?= basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
-            <a href="products.php" class="<?= basename($_SERVER['PHP_SELF']) == 'products.php' ? 'active' : '' ?>">Products</a>
-            <a href="suppliers.php" class="<?= basename($_SERVER['PHP_SELF']) == 'suppliers.php' ? 'active' : '' ?>">Suppliers</a>
-            <a href="orders.php" class="<?= basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : '' ?>">Orders</a>
-            <a href="stock_in.php" class="<?= basename($_SERVER['PHP_SELF']) == 'stock_in.php' ? 'active' : '' ?>">Stock In</a>
-            <a href="stock_out.php" class="<?= basename($_SERVER['PHP_SELF']) == 'stock_out.php' ? 'active' : '' ?>">Stock Out</a>
-            <a href="reports.php" class="<?= basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'active' : '' ?>">Reports</a>
+    <a href="dashboard.php" class="<?= basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
 
-        </nav>
+    <?php if ($_SESSION['user_role'] === 'admin'): ?>
+        <a href="products.php" class="<?= basename($_SERVER['PHP_SELF']) == 'products.php' ? 'active' : '' ?>">Products</a>
+        <a href="suppliers.php" class="<?= basename($_SERVER['PHP_SELF']) == 'suppliers.php' ? 'active' : '' ?>">Suppliers</a>
+        <a href="stock_in.php" class="<?= basename($_SERVER['PHP_SELF']) == 'stock_in.php' ? 'active' : '' ?>">Stock In</a>
+        <a href="stock_out.php" class="<?= basename($_SERVER['PHP_SELF']) == 'stock_out.php' ? 'active' : '' ?>">Stock Out</a>
+        <a href="orders.php" class="<?= basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : '' ?>">Sales Products</a>
+        <a href="reports.php" class="<?= basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'active' : '' ?>">Reports</a>
+    <?php else: ?>
+        <a href="orders.php" class="<?= basename($_SERVER['PHP_SELF']) == 'orders.php' ? 'active' : '' ?>">Sales Products</a>
+    <?php endif; ?>
+</nav>
     </aside>
     <main class="main-content">

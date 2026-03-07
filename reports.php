@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/auth_check.php';
-
+if ($_SESSION['user_role'] !== 'admin') {
+    die("Access denied.");
+}
 $pageTitle = "Reports";
 
 $inventoryValue = $pdo->query("SELECT COALESCE(SUM(quantity * price), 0) FROM products")->fetchColumn();
