@@ -1,7 +1,9 @@
 function confirmDelete() {
     return confirm("Are you sure you want to delete this item?");
 }
-
+function confirmLogout() {
+    return confirm("Are you sure you want to logout?");
+}
 const searchInput = document.getElementById("tableSearch");
 if (searchInput) {
     searchInput.addEventListener("keyup", function () {

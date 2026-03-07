@@ -37,6 +37,20 @@ CREATE TABLE IF NOT EXISTS stock_movements (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS orders (
+
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+customer_name TEXT,
+product_id INTEGER,
+phone_number TEXT,
+quantity INTEGER,
+unit_price REAL,
+total_price REAL,
+status TEXT,
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+
+);
 ");
 
 $userCount = (int)$pdo->query("SELECT COUNT(*) FROM users")->fetchColumn();
