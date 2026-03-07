@@ -4,6 +4,14 @@
     --bg: #f8f9fc;
     --surface: #ffffff;
     --surface-2: #f1f4f9;
+
+    --text-primary: #0d1117;
+
+    --sidebar-bg: #0d1117;
+    --sidebar-text: #c9d0de;
+    --sidebar-hover: #1a1f2e;
+
+    
 }
 
 * {
@@ -23,9 +31,12 @@ body {
     min-height: 100vh;
 }
 .sidebar {
-    width: 230px;
-    background: #172554;
-    color: white;
+    width: 240px;
+    flex-shrink: 0;
+    background:var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
     padding: 24px 16px;
 }
 .sidebar h2 {
@@ -45,10 +56,15 @@ body {
 }
 .main-content {
     flex: 1;
-    padding: 24px;
+    padding: 32px 36px;
+    min-width: 0;
 }
 h1 {
-    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 24px;
 }
 .cards {
     display: grid;
@@ -57,15 +73,32 @@ h1 {
     margin-bottom: 24px;
 }
 .card {
-    background: white;
-    border-radius: 14px;
-    padding: 20px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover{
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.card:hover::after{
+    opacity: 1;
 }
 .card p {
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-top: 8px;
+    font-family: 'DM Mono', monospace;
+    line-height: 1.1;
 }
 .card.danger {
     border-left: 6px solid #dc2626;
