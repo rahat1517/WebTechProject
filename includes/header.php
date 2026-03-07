@@ -23,7 +23,7 @@
 </div>
     <div class="app">
     <aside class="sidebar" id="sidebar">
-        <h2>IMS</h2>
+        <h2>IIT SuperShop</h2>
         <nav>
     <a href="dashboard.php" class="<?= basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'active' : '' ?>">Dashboard</a>
 
