@@ -8,7 +8,7 @@ TECH STACK:
 - SQLite
 
 FEATURES:
-- User registration and login
+- Admin and Manager login
 - Dashboard with summary cards
 - Product management
 - Supplier management
